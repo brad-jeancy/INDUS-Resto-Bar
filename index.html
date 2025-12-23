@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDUS Terrace & Bar | Saveurs Indiennes & Congolaises | Kinshasa</title>
+    <title>INDUS Terrace & Bar | Kinshasa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -11,20 +11,23 @@
         
         :root {
             --saffron: #f4a261;
-            --deep-red: #8b0000;
-            --dark-bg: #121212;
+            --dark-bg: #0d0d0d;
         }
 
-        body { font-family: 'Outfit', sans-serif; background-color: var(--dark-bg); color: #f0f0f0; margin: 0; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--dark-bg); color: #f0f0f0; margin: 0; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Bree Serif', serif; }
         
-        .page-section { display: none; min-height: 100vh; }
-        .active-section { display: block !important; animation: fadeIn 0.8s ease-out; }
+        /* Navigation & Sections Logic */
+        .page-section { display: none; width: 100%; }
+        .active-section { display: block !important; animation: fadeIn 0.6s ease-out forwards; }
         
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
         .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); }
-        .saffron-glow:hover { box-shadow: 0 0 20px rgba(244, 162, 97, 0.3); }
+        .gold-glow:hover { border-color: var(--saffron); box-shadow: 0 0 15px rgba(244, 162, 97, 0.2); }
     </style>
 </head>
 <body>
@@ -32,164 +35,144 @@
     <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-lg border-b border-white/5 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="text-2xl font-bold tracking-widest cursor-pointer" onclick="showPage('home')">
-                <span style="color: #f4a261;">INDUS</span> <span class="text-xs font-light tracking-tighter block md:inline md:ml-2">TERRACE & BAR</span>
+                <span style="color: #f4a261;">INDUS</span>
             </div>
             <div class="hidden md:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-medium">
                 <a href="javascript:void(0)" onclick="showPage('home')" class="hover:text-[#f4a261] transition">Accueil</a>
-                <a href="javascript:void(0)" onclick="showPage('ambiances')" class="hover:text-[#f4a261] transition">4 Ambiances</a>
-                <a href="javascript:void(0)" onclick="showPage('menu')" class="hover:text-[#f4a261] transition">Menu</a>
+                <a href="javascript:void(0)" onclick="showPage('ambiances')" class="hover:text-[#f4a261] transition">Ambiances</a>
+                <a href="javascript:void(0)" onclick="showPage('menu')" class="hover:text-[#f4a261] transition">Le Menu</a>
                 <a href="javascript:void(0)" onclick="showPage('contact')" class="hover:text-[#f4a261] transition">Contact</a>
             </div>
-            <a href="tel:+243818554749" class="bg-[#f4a261] text-black px-6 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-white transition">Réserver</a>
+            <a href="https://wa.me/243818554749" target="_blank" class="bg-[#f4a261] text-black px-6 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-white transition">Réserver</a>
         </div>
     </nav>
 
     <div id="home" class="page-section active-section">
-        <section class="relative h-screen flex items-center justify-center overflow-hidden">
-            <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=1600" class="absolute w-full h-full object-cover opacity-60" alt="Indian Spices">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50"></div>
+        <section class="relative h-screen flex items-center justify-center">
+            <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=1600" class="absolute w-full h-full object-cover opacity-50" alt="Hero">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black"></div>
             <div class="relative z-10 text-center px-6">
-                <h1 class="text-6xl md:text-9xl mb-4 italic">L'Éveil des Sens</h1>
-                <p class="text-lg md:text-2xl font-light mb-12 text-gray-300">Cuisine Authentique Indienne & Congolaise au cœur de Kinshasa.</p>
+                <h1 class="text-6xl md:text-9xl mb-6">L'Indus Kinshasa</h1>
+                <p class="text-lg md:text-2xl font-light mb-12 text-gray-300 italic">Saveurs Indiennes & Congolaises Authentiques</p>
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <button onclick="showPage('ambiances')" class="bg-white text-black px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#f4a261] transition">Explorer nos 4 Espaces</button>
-                    <button onclick="showPage('menu')" class="border border-white/30 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition">Voir la Carte</button>
+                    <button onclick="showPage('ambiances')" class="bg-[#f4a261] text-black px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white transition">Nos 4 Ambiances</button>
+                    <button onclick="showPage('menu')" class="border border-white/40 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition">Voir le Menu</button>
                 </div>
             </div>
         </section>
     </div>
 
-    <div id="ambiances" class="page-section pt-32 pb-24 px-6 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl mb-4">Un Lieu, Quatre <span style="color: #f4a261;">Vibrations</span></h2>
-                <p class="text-gray-500 italic max-w-2xl mx-auto">Du dîner familial à la soirée lounge, INDUS s'adapte à chaque moment de votre vie.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-card p-6 rounded-2xl saffron-glow transition-all duration-500">
-                    <i class="fa-solid fa-people-group text-3xl mb-6 block" style="color: #f4a261;"></i>
-                    <h3 class="text-xl mb-4">Restaurant</h3>
-                    <p class="text-sm text-gray-400">L'espace idéal pour vos réunions familiales et déjeuners d'affaires.</p>
+    <div id="ambiances" class="page-section pt-32 pb-24 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-5xl mb-12 italic">Un Lieu, Quatre <span style="color: #f4a261;">Styles</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-card p-8 rounded-2xl gold-glow transition-all">
+                    <i class="fa-solid fa-utensils text-3xl mb-6" style="color: #f4a261;"></i>
+                    <h3 class="text-xl mb-3 uppercase">Restaurant</h3>
+                    <p class="text-sm text-gray-500">Idéal pour les repas en famille et les réunions d'affaires.</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl saffron-glow transition-all duration-500">
-                    <i class="fa-solid fa-crown text-3xl mb-6 block" style="color: #f4a261;"></i>
-                    <h3 class="text-xl mb-4">Chambre VIP</h3>
-                    <p class="text-sm text-gray-400">Un cadre discret et prestigieux pour vos célébrations privées.</p>
+                <div class="glass-card p-8 rounded-2xl gold-glow transition-all">
+                    <i class="fa-solid fa-glass-citrus text-3xl mb-6" style="color: #f4a261;"></i>
+                    <h3 class="text-xl mb-3 uppercase">La Terrasse</h3>
+                    <p class="text-sm text-gray-500">Dînez en plein air sous les étoiles de Gombe.</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl saffron-glow transition-all duration-500">
-                    <i class="fa-solid fa-music text-3xl mb-6 block" style="color: #f4a261;"></i>
-                    <h3 class="text-xl mb-4">Le Lounge</h3>
-                    <p class="text-sm text-gray-400">Appréciez la musique live en savourant nos cocktails signatures.</p>
+                <div class="glass-card p-8 rounded-2xl gold-glow transition-all">
+                    <i class="fa-solid fa-crown text-3xl mb-6" style="color: #f4a261;"></i>
+                    <h3 class="text-xl mb-3 uppercase">Salon VIP</h3>
+                    <p class="text-sm text-gray-500">Espace privé pour vos célébrations exclusives.</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl saffron-glow transition-all duration-500">
-                    <i class="fa-solid fa-cloud-sun text-3xl mb-6 block" style="color: #f4a261;"></i>
-                    <h3 class="text-xl mb-4">La Terrasse</h3>
-                    <p class="text-sm text-gray-400">Dînez sous les étoiles de Kinshasa dans une ambiance décontractée.</p>
+                <div class="glass-card p-8 rounded-2xl gold-glow transition-all">
+                    <i class="fa-solid fa-music text-3xl mb-6" style="color: #f4a261;"></i>
+                    <h3 class="text-xl mb-3 uppercase">Le Lounge</h3>
+                    <p class="text-sm text-gray-500"> Cocktails & musique live pour vos soirées.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <div id="menu" class="page-section pt-32 pb-24 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-start">
+            <h2 class="text-6xl text-center mb-20 italic">La Carte <span style="color: #f4a261;">Indus</span></h2>
+            
+            <div class="grid md:grid-cols-2 gap-20">
                 <div class="space-y-12">
-                    <h2 class="text-5xl italic border-b border-white/10 pb-6">Saveurs d'Orient</h2>
+                    <h3 class="text-2xl border-b border-white/10 pb-4 tracking-widest uppercase">Spécialités Indiennes</h3>
                     <div class="space-y-8">
-                        <div class="flex justify-between items-center group">
-                            <div><h4 class="text-lg font-bold group-hover:text-[#f4a261] transition">Samosa Chat</h4><p class="text-xs text-gray-500 italic">Entrée croquante aux épices indiennes.</p></div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div><h4 class="text-lg font-bold group-hover:text-[#f4a261] transition">Poulet Tikka</h4><p class="text-xs text-gray-500 italic">Mariné au yaourt et grillé au tandoor.</p></div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div><h4 class="text-lg font-bold group-hover:text-[#f4a261] transition">Chilli Potato</h4><p class="text-xs text-gray-500 italic">Le parfait mélange sucré-salé-épicé.</p></div>
-                        </div>
+                        <div><div class="flex justify-between font-bold"><span>Samosa Chat</span><span class="text-[#f4a261]">Entrée</span></div><p class="text-gray-500 text-xs italic">Samosas croustillants aux épices indiennes.</p></div>
+                        <div><div class="flex justify-between font-bold"><span>Poulet Tikka</span><span class="text-[#f4a261]">Tandoor</span></div><p class="text-gray-500 text-xs italic">Mariné au yaourt et grillé au feu de bois.</p></div>
+                        <div><div class="flex justify-between font-bold"><span>Chilli Potato</span><span class="text-[#f4a261]">Populaire</span></div><p class="text-gray-500 text-xs italic">Pommes de terre sautées façon indo-chinoise.</p></div>
                     </div>
                 </div>
-                <div class="space-y-12 md:mt-24">
-                    <h2 class="text-5xl italic border-b border-white/10 pb-6">Classiques d'Ici</h2>
+                <div class="space-y-12">
+                    <h3 class="text-2xl border-b border-white/10 pb-4 tracking-widest uppercase">Saveurs Locales</h3>
                     <div class="space-y-8">
-                        <div class="flex justify-between items-center group">
-                            <div><h4 class="text-lg font-bold group-hover:text-[#f4a261] transition">Poulet Braisé du Kivu</h4><p class="text-xs text-gray-500 italic">La tradition locale revisitée par INDUS.</p></div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div><h4 class="text-lg font-bold group-hover:text-[#f4a261] transition">Fried Rice Chop Suey</h4><p class="text-xs text-gray-500 italic">Fusion asio-congolaise généreuse.</p></div>
-                        </div>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-lg border border-[#f4a261]/20">
-                        <p class="text-[#f4a261] text-xs font-bold uppercase mb-2"><i class="fa-solid fa-martini-glass mr-2"></i> Happy Hour</p>
-                        <p class="text-sm text-gray-300 italic">Profitez de réductions sur nos cocktails tous les soirs de semaine.</p>
+                        <div><div class="flex justify-between font-bold"><span>Poulet Braisé du Kivu</span></div><p class="text-gray-500 text-xs italic">Poulet braisé tendre servi avec bananes frites.</p></div>
+                        <div><div class="flex justify-between font-bold"><span>Fried Rice Chop Suey</span></div><p class="text-gray-500 text-xs italic">Riz sauté gourmand aux légumes et viandes.</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="contact" class="page-section pt-32 pb-24 px-6 bg-[#0a0a0a]">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20">
+    <div id="contact" class="page-section pt-32 pb-24 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
             <div class="space-y-12">
-                <h2 class="text-5xl">Rejoignez <span style="color: #f4a261;">L'Indus</span></h2>
-                <div class="space-y-8 text-gray-400">
-                    <div class="flex gap-4">
-                        <i class="fa-solid fa-map-location text-[#f4a261] text-xl"></i>
-                        <p>34 Avenue Colonel Ebeya, Gombe<br>Kinshasa, RD Congo</p>
+                <h2 class="text-5xl italic">Contact & <span style="color: #f4a261;">Réservations</span></h2>
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <i class="fa-solid fa-map-pin text-[#f4a261] mt-1"></i>
+                        <p class="text-gray-400">34 Avenue Colonel Ebeya, Gombe<br>Kinshasa, RD Congo</p>
                     </div>
-                    <div class="flex gap-4">
-                        <i class="fa-solid fa-phone text-[#f4a261] text-xl"></i>
-                        <p>+243 818 554 749</p>
+                    <div class="flex items-start space-x-4">
+                        <i class="fa-solid fa-phone text-[#f4a261] mt-1"></i>
+                        <p class="text-gray-400">+243 818 554 749</p>
                     </div>
-                    <div class="flex gap-4">
-                        <i class="fa-solid fa-calendar-check text-[#f4a261] text-xl"></i>
-                        <p>Ouvert tous les jours<br>11h00 – Minuit</p>
+                    <div class="flex items-start space-x-4">
+                        <i class="fa-solid fa-clock text-[#f4a261] mt-1"></i>
+                        <p class="text-gray-400">Ouvert tous les jours de 11h00 à minuit</p>
                     </div>
                 </div>
-
-                <div class="pt-10 border-t border-white/10">
-                    <h4 class="text-xs uppercase tracking-[0.3em] mb-8 text-gray-500 italic">Connectez avec nous</h4>
-                    <div class="flex gap-10">
-                        <a href="https://www.instagram.com/induskinshasa" target="_blank" class="flex flex-col items-center group">
-                            <div class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#f4a261] transition duration-500">
-                                <i class="fa-brands fa-instagram text-2xl group-hover:text-[#f4a261]"></i>
-                            </div>
-                            <span class="text-[9px] mt-2 uppercase tracking-widest text-gray-500 group-hover:text-white transition">Instagram</span>
-                        </a>
-                        <a href="https://www.facebook.com/firenguirestobar" target="_blank" class="flex flex-col items-center group">
-                            <div class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#f4a261] transition duration-500">
-                                <i class="fa-brands fa-facebook-f text-2xl group-hover:text-[#f4a261]"></i>
-                            </div>
-                            <span class="text-[9px] mt-2 uppercase tracking-widest text-gray-500 group-hover:text-white transition">Facebook</span>
-                        </a>
-                    </div>
+                <div class="pt-10 flex space-x-8">
+                    <a href="https://www.instagram.com/induskinshasa" target="_blank" class="text-3xl hover:text-[#f4a261] transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/firenguirestobar" target="_blank" class="text-3xl hover:text-[#f4a261] transition"><i class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
-            <div class="rounded-3xl overflow-hidden h-[450px] border border-white/10 shadow-2xl grayscale contrast-125">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.135431602863!2d15.2829!3d-4.314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a33777d000001%3A0xe54958f7000000!2sGalerie%20La%20fontaine!5e0!3m2!1sen!2scd!4v17000000000001" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="h-96 rounded-2xl overflow-hidden border border-white/10 grayscale shadow-2xl">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.135431602863!2d15.2829!3d-4.314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a33777d000001%3A0xe54958f7000000!2sGalerie%20La%20fontaine!5e0!3m2!1sen!2scd!4v17000000000002" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </div>
 
-    <footer id="dynamic-footer" class="py-20 border-t border-white/5 text-center">
-        <div class="text-3xl font-bold tracking-[0.4em] mb-4 uppercase" style="color: #f4a261;">INDUS</div>
-        <p class="text-[9px] text-gray-600 uppercase tracking-[0.6em]">Kinshasa • Restaurant • Lounge • Terrasse • VIP</p>
+    <footer class="py-20 text-center border-t border-white/5">
+        <div class="text-2xl font-bold tracking-[0.6em] mb-4 uppercase" style="color: #f4a261;">INDUS</div>
+        <p class="text-[10px] text-gray-600 uppercase tracking-[0.4em]">Kinshasa • Restaurant • Terrasse • Lounge • VIP</p>
     </footer>
 
     <script>
         function showPage(pageId) {
+            // Force reset all sections
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(s => {
                 s.style.display = 'none';
                 s.classList.remove('active-section');
             });
 
+            // Show current section
             const target = document.getElementById(pageId);
             if(target) {
                 target.style.display = 'block';
-                setTimeout(() => { target.classList.add('active-section'); }, 10);
+                // Small delay for CSS animation
+                setTimeout(() => {
+                    target.classList.add('active-section');
+                }, 10);
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        window.onload = function() { showPage('home'); };
+
+        // Initialize Home on load
+        window.onload = function() {
+            showPage('home');
+        };
     </script>
 </body>
 </html>
